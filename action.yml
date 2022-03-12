@@ -1,0 +1,5 @@
+name: "Notion to Posts"
+description: "Extracts all posts from a Notion Database and uploaders them in the proper markdown format"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
