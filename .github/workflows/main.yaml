@@ -1,0 +1,57 @@
+name: Build and deploy Jekyll site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # or master before October 2020
+
+jobs:
+  github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '17.6.0'
+        
+
+      - name: "Install npm and extract notion"  
+        env: # Or as an environment variable
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+          RELATIVE_PATH: "../"
+        run: |
+          cp infrastructure/notion/package.json notion/
+          cp infrastructure/notion/package-lock.json notion/
+          cd notion 
+          npm install
+          node main.js
+          cd ..
+
+
+
+      # - name: notion
+      #   run: cd notion && node main.js && cd ..
+
+      #   env: 
+
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '17.6.0'
+      # - run: cd utils && npm install
+
+      # - name: notion
+      #   env: # Or as an environment variable
+      #     NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      #   run: echo "$NOTION_TOKEN" && cd utils && node main.js && cd ..
+
+      - uses: helaili/jekyll-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,15 @@
+author: Diego Kiedanski
+
+description: Diego Kiedanski's personal website.
+
+hero_title: Hello, my name is Diego. I'm a postdoctoral associate at Yale.
+hero_description: "My work involves applied machine learning: from research to teaching and consulting. I'm particularly interested in finding use cases for which machine learning is the right tool for the job."
+
+linkedin: diego-kiedanski
+github: kiedanski
+email: ping@kiedanski.com
+
+paginate: 9
+paginate_path: "/blog/page:num/"
+plugins:
+  - jekyll-paginate
