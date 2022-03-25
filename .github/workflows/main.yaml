@@ -1,6 +1,9 @@
 name: Build and deploy Jekyll site to GitHub Pages
 
 on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '10 * * * *'
   push:
     branches:
       - main # or master before October 2020
