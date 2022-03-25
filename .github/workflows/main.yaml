@@ -36,21 +36,13 @@ jobs:
           cd notion 
           npm install
           node main.js
-          cd ..
-        
+          cd ..     
      
       - name: Build
         uses: helaili/jekyll-action@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  
-        
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages  # default: gh-pages
-          cname: kiedanski.com
-          enable_jekyll: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target_branch: 'gh-pages'
 
 
 
