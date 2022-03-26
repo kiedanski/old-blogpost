@@ -14,11 +14,9 @@ layout: default
 
           <div class="post__tags">
 
-            <a href="../tags.html#travel" class="post__tag">travel</a>
-
-            <a href="../tags.html#story" class="post__tag">story</a>
-
-            <a href="../tags.html#rest" class="post__tag">rest</a>
+            {% for tag in site.tags %}
+            <a href="../tags.html#travel" class="post__tag">{{ tag | capitalize }}</a>
+            {% endfor %}
 
           </div>
 
