@@ -20,7 +20,7 @@ function build_post(page) {
     header = header + "date: " + createdTime + "\n";
 
     if (tags.length > 0) {
-        header = header + "tags: " + tags.join() + "\n";
+        header = header + "tags: [" + tags.join() + "] \n";
     }
 
     if (page["cover"] !== null) {
