@@ -22,11 +22,12 @@ const page2md = async (pageId) => {
     // console.log(actualPage)
     const mdblocks = await n2m.pageToMarkdown(pageId);
     var mdString = n2m.toMarkdownString(mdblocks);
-    console.log(mdString);
 
     [filename, header] = lib.build_post(actualPage);
 
     mdString = header + mdString;
+
+    mdString = lib.postProcessMarkdown(mdString);
 
     //writing to file
     fs.writeFile(filename, mdString, (err) => {

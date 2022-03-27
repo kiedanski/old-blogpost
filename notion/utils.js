@@ -49,4 +49,10 @@ function build_post(page) {
     return [filename, header];
 }
 
-module.exports = { build_post };
+function postProcessMarkdown(mdString) {
+    mdString = mdString.replaceAll("```json", "```json-doc");
+
+    return mdString;
+};
+
+module.exports = { build_post, postProcessMarkdown };
