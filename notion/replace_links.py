@@ -31,6 +31,8 @@ def download_image_to_assets(img_url):
         local_filename, headers = urllib.request.urlretrieve(img_url)
 
         img_ext = "." + headers.get_content_type().split("/")[1]
+        if img_ext == ".html":
+            print(img_url)
         tmp_path = Path(local_filename)
 
         new_path = tempfile.mkstemp(
