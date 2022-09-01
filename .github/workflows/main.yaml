@@ -28,12 +28,14 @@ jobs:
           DATABASE_ID: ${{ secrets.DATABASE_ID }}
           RELATIVE_PATH: "../"
         run: |
+          python -m pip install pillow
           cp infrastructure/notion/package.json notion/
           cp infrastructure/notion/package-lock.json notion/
           cd notion 
           npm install
           node main.js
           cd ..     
+          python notion/replace_links.py
           echo "kiedanski.com" > CNAME
      
       - name: Build
