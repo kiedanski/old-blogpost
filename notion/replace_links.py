@@ -31,8 +31,6 @@ def download_image_to_assets(img_url):
         local_filename, headers = urllib.request.urlretrieve(img_url)
 
         img_ext = "." + headers.get_content_type().split("/")[1]
-        if img_ext == ".html":
-            print(img_url)
         tmp_path = Path(local_filename)
 
         new_path = tempfile.mkstemp(
@@ -53,7 +51,7 @@ assets_path = Path("assets/images")
 shutil.rmtree(assets_path, ignore_errors=True)
 assets_path.mkdir(parents=True, exist_ok=True)
 
-files = list(Path(".").rglob("*.md"))
+files = list(Path("_posts").rglob("*.md")) + ["index.md", "about.md"]
 for fl in files:
     if "README" not in str(fl):
         print(fl)
