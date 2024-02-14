@@ -1,0 +1,571 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Setup VSCode for Python & Docker. Part I</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name='description' content='Diego Kiedanski's personal website.'>
+
+    <link rel="canonical" href="index.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="kiedanski.">
+    <meta name="twitter:description" content="">
+    <!-- <meta name="twitter:image:src" content=""> add image url here -->
+
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="kiedanski.">
+    <meta property="og:description" content="">
+    <!-- <meta property="og:image" content=""> add image url here -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Josefin+Sans:wght@700&display=swap"
+        as="style">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Josefin+Sans:wght@700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Ionicons -->
+    <link rel="preload" href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" as="style">
+
+    <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.setAttribute("dark", "");
+            document.documentElement.classList.add('dark-mode');
+        }
+
+        if (localStorage.getItem("classView") === "list") {
+            document.documentElement.setAttribute("list", "");
+            document.documentElement.classList.add('view-list');
+        }
+    </script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4K8E911HZ7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4K8E911HZ7');
+    </script>
+
+</head>
+
+<body>
+    <header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="header__inner col col-12">
+
+                <div class="logo">
+                    <a class="logo__link" href="/">
+
+                        kiedanski.
+
+                    </a>
+                </div>
+
+                <nav class="main-nav">
+                    <div class="main-nav__box">
+                        <div class="nav__icon-close">
+                            <i class="ion ion-md-close"></i>
+                        </div>
+                        <div class="nav__title">Menu</div>
+                        <ul class="nav__list list-reset">
+
+                            
+                            <li class="nav__item">
+                                <a href="/" class="nav__link" >Home</a>
+                            </li>
+                            
+                            <li class="nav__item">
+                                <a href="/blog/index.html" class="nav__link" >Blog</a>
+                            </li>
+                            
+                            <li class="nav__item">
+                                <a href="/about.html" class="nav__link" >About</a>
+                            </li>
+                            
+
+
+                            <li class="nav__item">
+                                <div class="toggle-theme">
+                                    <div class="toggle-moon" title="Enable dark mode"><i class="ion ion-ios-moon"></i>
+                                    </div>
+                                    <div class="toggle-sun" title="Enable light mode"><i class="ion ion-ios-sunny"></i>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="nav-button">
+                    <i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- begin content -->
+<main class="content" aria-label="Content">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="post__info">
+
+
+          <div class="post__tags">
+
+            
+            <a href="../tags.html#travel" class="post__tag">Vscode</a>
+            
+            <a href="../tags.html#travel" class="post__tag">Programming</a>
+            
+            <a href="../tags.html#travel" class="post__tag">Docker</a>
+            
+            <a href="../tags.html#travel" class="post__tag">Python</a>
+            
+
+          </div>
+
+
+          <h1 class="post__title">Setup VSCode for Python & Docker. Part I</h1>
+
+          <div class="post__meta">
+            <a class="post__author" href="../about/index.html">Diego Kiedanski</a> – <time class="post__date"
+              datetime="2022-03-21 00:00:00 +0000">21 March 2022</time>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- begin post -->
+  <div class="container animate">
+
+
+    <div class="row">
+      <div class="col col-12">
+        <div class="post-image">
+          <img class="lazy" data-src="/assets/images/tmp_nu5gb_2.jpeg" alt="">
+        </div>
+      </div>
+    </div>
+
+
+    <article class="post">
+
+      <div class="post__content">
+        <h1 id="intro">Intro</h1>
+
+<p>I have been medically diagnosed with an inability to use the same editor for more than a year (or, If I stay with the same, delete my configuration and start from scratch).</p>
+
+<p>For a while, I thought that I had solved my problem when I settled in a <a href="https://www.vim.org/">VIM</a> + <a href="https://github.com/tmux/tmux/wiki">Tmux</a> configuration that served me well. There was a single issue with it: I could not plot images using <a href="https://matplotlib.org/">Matplotlib</a> inside my Tmux split. That sounds like a minor issue to most people, and for a while, I was convinced that this was a minor issue for me as well.</p>
+
+<p><img src="/assets/images/tmp0m6d5vnk.png" alt="IPython does not render inline plots when using Tmux and iTerm2" /></p>
+
+<p>Unfortunately, working in machine learning and data science, creating plots is a big part of my daily flow. With time, what started as a minor inconvenience developed into a full-blown annoyance, and I could not ignore the problem anymore. This is how I ended up using <a href="https://code.visualstudio.com/">VSCode</a>.</p>
+
+<p><img src="/assets/images/tmpgc3h39ny.png" alt="Plotting inline using VSCode and Matplotlib" /></p>
+
+<p>I started using VSCode and quickly realized that my traditional workflow required a bit of tweaking. I do not like to install applications on my local machine, so I tend to work inside <a href="https://www.docker.com/">docker</a> containers. VSCode has the ability to open the workspace inside a docker container (nice), which in theory is everything that I might want.</p>
+
+<p>Overall, I must say that it works fairly well, once you manage to understand how to configure it properly,  that is. Properly configuring a custom docker container for python development can take a while, at least if you don’t know what you are doing, which was my case when I started.</p>
+
+<p>What follows is the result of this journey trying to bend VSCode to my liking and what I learned from it.</p>
+
+<h1 id="devcontainerjson">devcontainer.json</h1>
+
+<p>The most important file to set up VSCode with docker is the <a href="https://code.visualstudio.com/docs/remote/devcontainerjson-reference">devcontainer.json</a>. It tells VSCode which docker image it needs to build and connect to and how to configure VSCode inside the docker container, including which extension to install and how to set them up.</p>
+
+<p>Ignoring such configurations at first resulted in me being able to code inside the container without any of the benefits of a modern IDE (no code competition, highlighting, etc).</p>
+
+<p>After some configuration we will want a file that looks as follows:</p>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .devcontainer/devcontainer.json</span><span class="w">
+</span><span class="p">{</span><span class="w">
+
+	</span><span class="c1">// ...</span><span class="w">
+
+	</span><span class="c1">// Sets the run context to one level up instead of the .devcontainer folder, i.e, Root folder</span><span class="w">
+	</span><span class="nl">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">".."</span><span class="p">,</span><span class="w">
+	</span><span class="c1">// Dockerfile in the root folder</span><span class="w">
+	</span><span class="nl">"dockerFile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"../Dockerfile"</span><span class="p">,</span><span class="w">
+	</span><span class="c1">// Set *default* container specific settings.json values on container create.</span><span class="w">
+	
+	</span><span class="c1">// you need to change the following parameters to match your docker container</span><span class="w">
+	</span><span class="nl">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="nl">"editor.formatOnSave"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"python.formatting.provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"black"</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"python.defaultInterpreterPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/local/bin/python"</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"python.linting.enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"python.linting.pylintEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"python.formatting.blackPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/worker/.local/bin/black"</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"python.linting.pylintPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/worker/.local/bin/pylint"</span><span class="p">,</span><span class="w">
+		</span><span class="c1">// consisten with python version in dockerfile</span><span class="w">
+		</span><span class="nl">"python.autoComplete.extraPaths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+			</span><span class="s2">"/home/worker/.local/lib/python3.10/"</span><span class="p">,</span><span class="w">
+			</span><span class="s2">"/home/worker/.local/lib/python3.10/site-packages/"</span><span class="p">,</span><span class="w">
+		</span><span class="p">]</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	
+	</span><span class="c1">// Basic extensions for python and path completition</span><span class="w">
+	</span><span class="nl">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+		</span><span class="s2">"ms-python.python"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"ms-python.vscode-pylance"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"christian-kohler.path-intellisense"</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+	
+	</span><span class="c1">// Mount the code in the /workspace folder inside the container</span><span class="w">
+	</span><span class="nl">"workspaceMount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source=${localWorkspaceFolder}/,target=/workspace,type=bind"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"workspaceFolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/workspace"</span><span class="p">,</span><span class="w">
+	
+	</span><span class="c1">// ...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Some important points to highlight:</p>
+
+<ul>
+  <li>
+    <p>All the python paths need to be configured inside <strong>settings</strong>. Those paths need to reflect the python path inside the container, and that might vary depending on your specific installation. If a library or extension is not working properly, start by double-checking its path here.</p>
+  </li>
+  <li>
+    <p>Make sure to mount the local workspace in the correct folder. You need to change both, the target folder and the “workspace folder”.</p>
+  </li>
+</ul>
+
+<p>An example project with all the above settings properly configured can be found in <a href="https://github.com/kiedanski/project-templates/tree/vscode-python-docker">this Github repository</a>.</p>
+
+<h1 id="extra-connecting-via-ssh">Extra: Connecting via SSH</h1>
+
+<p>If your docker container is running in a different host (such as a large company server), the process is almost the same, with the only difference that first you need to ssh into the host and then connect to the remote container.</p>
+
+<p>For machine learning workflows and large-scale simulations, you might need to leave the process running after you disconnect from your ssh session (think of leaving the model training overnight), instead of terminating it as soon as you disconnect from the host.</p>
+
+<p>For such situations, we can configure VSCode to automatically start a Tmux session in the host upon connection. This will have the added benefit that the simulation will keep on running once we disconnect from the host and it will also be waiting for us the next time we connect to it.</p>
+
+<p>To achieve so, add the following lines to your <code class="language-plaintext highlighter-rouge">settings.json</code>  in your <strong>local</strong> configuration.</p>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// settings.json</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="c1">// ...</span><span class="w">
+
+</span><span class="c1">// the following assumes that /usr/bin/tmux is the correct path for tmux</span><span class="w">
+</span><span class="c1">// inside the remote ssh host, and that it is installed</span><span class="w">
+
+</span><span class="c1">// it attachs to a session named main if it exists or it creates a new one</span><span class="w">
+</span><span class="nl">"terminal.integrated.profiles.linux"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"tmux-profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/bin/tmux"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"new-session"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"-A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"-s"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"main"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"terminal.integrated.defaultProfile.linux"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tmux-profile"</span><span class="p">,</span><span class="w">
+		</span><span class="c1">// if your target host is not running linux, change that for the appropiate OS.</span><span class="w">
+</span><span class="c1">// ...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="summary">Summary</h1>
+
+<p>In this blog post, we went over the basics of setting up VSCode for python development inside docker containers. If you have any questions or suggestions, do not hesitate and ping me!</p>
+
+<h2 id="coming-up">Coming up</h2>
+
+<p>After getting used to VIM as my main editor, is hard to code without all the shortcuts. In a future blog post, I will explore how to set up docker to feel like vim.</p>
+
+      </div>
+
+
+    </article>
+  </div>
+
+
+
+
+
+
+
+  <!-- begin related posts -->
+  <!-- <div class="container">
+    <section class="section related-posts is-related animate">
+      <div class="row">
+        <div class="col col-12">
+          <div class="container__inner">
+            <div class="section__info">
+              <div class="section__head">
+                <h2 class="section__title">You may also like</h2>
+                <a class="section__link" href="../blog.html">
+
+
+
+                  <a href="../tags.html#travel" class="section__link related-tag">See all<span> travel</span></a>
+
+
+
+
+
+
+
+                </a>
+              </div>
+            </div>
+            <div class="row">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="article col col-4 col-d-6 col-t-12">
+                <div class="article__inner">
+
+                  <div class="article__head">
+                    <time class="article__date" datetime="2018-11-12T12:01:35+00:00">12 Nov 2018</time>
+
+                    <a class="article__image" href="do-what-you-can-with-what-you-have-where-you-are.html">
+                      <img class="lazy" data-src="/images/07.jpg"
+                        alt="Do what you can, with what you have, where you are">
+                    </a>
+
+                  </div>
+
+                  <div class="article__content">
+
+                    <h2 class="article__title">
+                      <a href="do-what-you-can-with-what-you-have-where-you-are.html">Do what you can, with what you
+                        have, where you are</a>
+                    </h2>
+
+                    <p class="article__excerpt">Leverage agile frameworks to provide a robust synopsis for high level
+                      overvie...</p>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="article col col-4 col-d-6 col-t-12">
+                <div class="article__inner">
+
+                  <div class="article__head">
+                    <time class="article__date" datetime="2018-11-11T12:01:35+00:00">11 Nov 2018</time>
+
+                    <a class="article__image" href="if-you-cannot-do-great-things-do-small-things-in-a-great-way.html">
+                      <img class="lazy" data-src="/images/04.jpg"
+                        alt="If you cannot do great things, do small things in a great way">
+                    </a>
+
+                  </div>
+
+                  <div class="article__content">
+
+                    <h2 class="article__title">
+                      <a href="if-you-cannot-do-great-things-do-small-things-in-a-great-way.html">If you cannot do great
+                        things, do small things in a great way</a>
+                    </h2>
+
+                    <p class="article__excerpt">Leverage agile frameworks to provide a robust synopsis for high level
+                      overvie...</p>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="article col col-4 col-d-6 col-t-12">
+                <div class="article__inner">
+
+                  <div class="article__head">
+                    <time class="article__date" datetime="2018-11-10T12:01:35+00:00">10 Nov 2018</time>
+
+                    <a class="article__image" href="strive-not-to-be-a-success-but-rather-to-be-of-value.html">
+                      <img class="lazy" data-src="/images/09.jpg"
+                        alt="Strive not to be a success, but rather to be of value">
+                    </a>
+
+                  </div>
+
+                  <div class="article__content">
+
+                    <h2 class="article__title">
+                      <a href="strive-not-to-be-a-success-but-rather-to-be-of-value.html">Strive not to be a success,
+                        but rather to be of value</a>
+                    </h2>
+
+                    <p class="article__excerpt">Leverage agile frameworks to provide a robust synopsis for high level
+                      overvie...</p>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> -->
+  <!-- end related posts -->
+
+
+  <!-- begin subscribe -->
+
+  <!-- end subscribe -->
+
+</main>
+<!-- end content -->
+
+
+<!-- begin footer -->
+
+<!-- end footer -->
+
+    <script src="/assets/js/scripts.js"></script>
+    <script src="/assets/js/common.js"></script>
+
+    <div class="top" title="Top"><i class="ion ion-ios-arrow-round-up"></i></div>
+    <!-- <div class="container">
+    <div class="row">
+        <div class="col col-12">
+            <section class="subscribe">
+                <div class="subscribe__head">
+                    <h2 class="subscribe__title">Get updates and digital art inspiration</h2>
+                </div>
+                <div class="subscribe__inner">
+                    <form class="subscribe__form validate"
+                        action="https://frnla.us6.list-manage.com/subscribe/post?u=6314d69a3f315af7ce3fb00a0&amp;id=3038727cc3"
+                        method="POST" id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank"
+                        novalidate>
+                        <label class="screen-reader-text" for="mce-EMAIL">Email address</label>
+                        <input class="subscribe__email required email" id="mce-EMAIL" type="text" name="EMAIL"
+                            placeholder="Email address">
+                        <button class="button button--primary subscribe__button" id="membedded-subscribe" type="submit"
+                            name="subscribe">Subscribe</button>
+                    </form>
+                </div>
+                <div class="subscribe__bg">
+                    <svg width="920" height="119" fill="#f2eef8" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M429.599 14.348C207.922-27.515 50.834 66.674 0 119h920V0c-11.961 4.782-48.243 19.074-97.681 37.979-61.799 23.631-115.623 28.695-392.72-23.631z" />
+                    </svg>
+                </div>
+            </section>
+        </div>
+    </div>
+</div> -->
+    <footer class="footer">
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-12">
+
+                <div class="footer__inner">
+
+                    <div class="social">
+                        <ul class="social__list list-reset">
+
+                            
+                            <li class="social__item">
+                                <a class="social__link"
+                                    href="https://www.linkedin.com/in/diego-kiedanski"
+                                    target="_blank" rel="noopener" aria-label="LinkedIn link">
+                                    <i class="fa fa-linkedin"></i>
+                                    LinkedIn
+                                </a>
+                            </li>
+                            
+
+                            
+                            <li class="social__item">
+                                <a class="social__link"
+                                    href="https://www.github.com/kiedanski"
+                                    target="_blank" rel="noopener" aria-label="Github link">
+                                    <i class="fa fa-github"></i>
+                                    Github
+                                </a>
+                            </li>
+                            
+
+                            
+                            <li class="social__item">
+                                <a class="social__link" href="mailto:ping%40kiedanski.com"
+                                    target="_blank" rel="noopener" aria-label="Email link">
+                                    <i class="fa fa-envelope"></i>
+                                    Contact Me
+                                </a>
+                            </li>
+                            
+
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</footer>
+</body>
+
+</html>

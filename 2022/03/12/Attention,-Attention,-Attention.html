@@ -1,0 +1,455 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Attention, Attention, Attention</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name='description' content='Diego Kiedanski's personal website.'>
+
+    <link rel="canonical" href="index.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="kiedanski.">
+    <meta name="twitter:description" content="">
+    <!-- <meta name="twitter:image:src" content=""> add image url here -->
+
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="kiedanski.">
+    <meta property="og:description" content="">
+    <!-- <meta property="og:image" content=""> add image url here -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Josefin+Sans:wght@700&display=swap"
+        as="style">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Josefin+Sans:wght@700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Ionicons -->
+    <link rel="preload" href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" as="style">
+
+    <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.setAttribute("dark", "");
+            document.documentElement.classList.add('dark-mode');
+        }
+
+        if (localStorage.getItem("classView") === "list") {
+            document.documentElement.setAttribute("list", "");
+            document.documentElement.classList.add('view-list');
+        }
+    </script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4K8E911HZ7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4K8E911HZ7');
+    </script>
+
+</head>
+
+<body>
+    <header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="header__inner col col-12">
+
+                <div class="logo">
+                    <a class="logo__link" href="/">
+
+                        kiedanski.
+
+                    </a>
+                </div>
+
+                <nav class="main-nav">
+                    <div class="main-nav__box">
+                        <div class="nav__icon-close">
+                            <i class="ion ion-md-close"></i>
+                        </div>
+                        <div class="nav__title">Menu</div>
+                        <ul class="nav__list list-reset">
+
+                            
+                            <li class="nav__item">
+                                <a href="/" class="nav__link" >Home</a>
+                            </li>
+                            
+                            <li class="nav__item">
+                                <a href="/blog/index.html" class="nav__link" >Blog</a>
+                            </li>
+                            
+                            <li class="nav__item">
+                                <a href="/about.html" class="nav__link" >About</a>
+                            </li>
+                            
+
+
+                            <li class="nav__item">
+                                <div class="toggle-theme">
+                                    <div class="toggle-moon" title="Enable dark mode"><i class="ion ion-ios-moon"></i>
+                                    </div>
+                                    <div class="toggle-sun" title="Enable light mode"><i class="ion ion-ios-sunny"></i>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="nav-button">
+                    <i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- begin content -->
+<main class="content" aria-label="Content">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="post__info">
+
+
+          <div class="post__tags">
+
+            
+            <a href="../tags.html#travel" class="post__tag">Machine-learning</a>
+            
+
+          </div>
+
+
+          <h1 class="post__title">Attention, Attention, Attention</h1>
+
+          <div class="post__meta">
+            <a class="post__author" href="../about/index.html">Diego Kiedanski</a> – <time class="post__date"
+              datetime="2022-03-12 00:00:00 +0000">12 March 2022</time>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- begin post -->
+  <div class="container animate">
+
+
+    <div class="row">
+      <div class="col col-12">
+        <div class="post-image">
+          <img class="lazy" data-src="/assets/images/tmpe1t2m13q.jpeg" alt="">
+        </div>
+      </div>
+    </div>
+
+
+    <article class="post">
+
+      <div class="post__content">
+        <p>I have wanted to take some time and learn about transformers for a while. They seems to be revolutionizing every major field within AI, so I could no longer afford to stay away.</p>
+
+<p>The other day I decided to start from the beginning and went all in into the seminal paper <a href="https://arxiv.org/abs/1706.03762">Attention is all you need</a>.</p>
+
+<p>The paper is quite interesting, but I failed to grasp the intuition behind the Qs, Ks, and Vs in there. I went looking elsewhere for a good explanation of what each of those was, but most articles just weren’t clear enough.</p>
+
+<p>Alas, at last, I found what I was looking for. The following YouTube series of 4 videos goes in depth about how the attention layer works and I recommend it to anyone trying to get started with transformers.</p>
+
+<p><a href="https://youtu.be/yGTUuEx3GkA">Youtube Playlist</a></p>
+
+<h2 id="update-9th-march-2023">Update: 9th March, 2023</h2>
+
+<p>I have found another great resource for learning about transformers. This <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">YouTube video</a> provides a clear and thorough explanation of the attention mechanism and how it is used in transformer models. I highly recommend it to anyone looking to learn more about this topic.</p>
+
+      </div>
+
+
+    </article>
+  </div>
+
+
+
+
+
+
+
+  <!-- begin related posts -->
+  <!-- <div class="container">
+    <section class="section related-posts is-related animate">
+      <div class="row">
+        <div class="col col-12">
+          <div class="container__inner">
+            <div class="section__info">
+              <div class="section__head">
+                <h2 class="section__title">You may also like</h2>
+                <a class="section__link" href="../blog.html">
+
+
+
+                  <a href="../tags.html#travel" class="section__link related-tag">See all<span> travel</span></a>
+
+
+
+
+
+
+
+                </a>
+              </div>
+            </div>
+            <div class="row">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="article col col-4 col-d-6 col-t-12">
+                <div class="article__inner">
+
+                  <div class="article__head">
+                    <time class="article__date" datetime="2018-11-12T12:01:35+00:00">12 Nov 2018</time>
+
+                    <a class="article__image" href="do-what-you-can-with-what-you-have-where-you-are.html">
+                      <img class="lazy" data-src="/images/07.jpg"
+                        alt="Do what you can, with what you have, where you are">
+                    </a>
+
+                  </div>
+
+                  <div class="article__content">
+
+                    <h2 class="article__title">
+                      <a href="do-what-you-can-with-what-you-have-where-you-are.html">Do what you can, with what you
+                        have, where you are</a>
+                    </h2>
+
+                    <p class="article__excerpt">Leverage agile frameworks to provide a robust synopsis for high level
+                      overvie...</p>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="article col col-4 col-d-6 col-t-12">
+                <div class="article__inner">
+
+                  <div class="article__head">
+                    <time class="article__date" datetime="2018-11-11T12:01:35+00:00">11 Nov 2018</time>
+
+                    <a class="article__image" href="if-you-cannot-do-great-things-do-small-things-in-a-great-way.html">
+                      <img class="lazy" data-src="/images/04.jpg"
+                        alt="If you cannot do great things, do small things in a great way">
+                    </a>
+
+                  </div>
+
+                  <div class="article__content">
+
+                    <h2 class="article__title">
+                      <a href="if-you-cannot-do-great-things-do-small-things-in-a-great-way.html">If you cannot do great
+                        things, do small things in a great way</a>
+                    </h2>
+
+                    <p class="article__excerpt">Leverage agile frameworks to provide a robust synopsis for high level
+                      overvie...</p>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="article col col-4 col-d-6 col-t-12">
+                <div class="article__inner">
+
+                  <div class="article__head">
+                    <time class="article__date" datetime="2018-11-10T12:01:35+00:00">10 Nov 2018</time>
+
+                    <a class="article__image" href="strive-not-to-be-a-success-but-rather-to-be-of-value.html">
+                      <img class="lazy" data-src="/images/09.jpg"
+                        alt="Strive not to be a success, but rather to be of value">
+                    </a>
+
+                  </div>
+
+                  <div class="article__content">
+
+                    <h2 class="article__title">
+                      <a href="strive-not-to-be-a-success-but-rather-to-be-of-value.html">Strive not to be a success,
+                        but rather to be of value</a>
+                    </h2>
+
+                    <p class="article__excerpt">Leverage agile frameworks to provide a robust synopsis for high level
+                      overvie...</p>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> -->
+  <!-- end related posts -->
+
+
+  <!-- begin subscribe -->
+
+  <!-- end subscribe -->
+
+</main>
+<!-- end content -->
+
+
+<!-- begin footer -->
+
+<!-- end footer -->
+
+    <script src="/assets/js/scripts.js"></script>
+    <script src="/assets/js/common.js"></script>
+
+    <div class="top" title="Top"><i class="ion ion-ios-arrow-round-up"></i></div>
+    <!-- <div class="container">
+    <div class="row">
+        <div class="col col-12">
+            <section class="subscribe">
+                <div class="subscribe__head">
+                    <h2 class="subscribe__title">Get updates and digital art inspiration</h2>
+                </div>
+                <div class="subscribe__inner">
+                    <form class="subscribe__form validate"
+                        action="https://frnla.us6.list-manage.com/subscribe/post?u=6314d69a3f315af7ce3fb00a0&amp;id=3038727cc3"
+                        method="POST" id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank"
+                        novalidate>
+                        <label class="screen-reader-text" for="mce-EMAIL">Email address</label>
+                        <input class="subscribe__email required email" id="mce-EMAIL" type="text" name="EMAIL"
+                            placeholder="Email address">
+                        <button class="button button--primary subscribe__button" id="membedded-subscribe" type="submit"
+                            name="subscribe">Subscribe</button>
+                    </form>
+                </div>
+                <div class="subscribe__bg">
+                    <svg width="920" height="119" fill="#f2eef8" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M429.599 14.348C207.922-27.515 50.834 66.674 0 119h920V0c-11.961 4.782-48.243 19.074-97.681 37.979-61.799 23.631-115.623 28.695-392.72-23.631z" />
+                    </svg>
+                </div>
+            </section>
+        </div>
+    </div>
+</div> -->
+    <footer class="footer">
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-12">
+
+                <div class="footer__inner">
+
+                    <div class="social">
+                        <ul class="social__list list-reset">
+
+                            
+                            <li class="social__item">
+                                <a class="social__link"
+                                    href="https://www.linkedin.com/in/diego-kiedanski"
+                                    target="_blank" rel="noopener" aria-label="LinkedIn link">
+                                    <i class="fa fa-linkedin"></i>
+                                    LinkedIn
+                                </a>
+                            </li>
+                            
+
+                            
+                            <li class="social__item">
+                                <a class="social__link"
+                                    href="https://www.github.com/kiedanski"
+                                    target="_blank" rel="noopener" aria-label="Github link">
+                                    <i class="fa fa-github"></i>
+                                    Github
+                                </a>
+                            </li>
+                            
+
+                            
+                            <li class="social__item">
+                                <a class="social__link" href="mailto:ping%40kiedanski.com"
+                                    target="_blank" rel="noopener" aria-label="Email link">
+                                    <i class="fa fa-envelope"></i>
+                                    Contact Me
+                                </a>
+                            </li>
+                            
+
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</footer>
+</body>
+
+</html>
